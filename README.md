@@ -64,9 +64,12 @@
     [user]
     login = your_username
     password = your_password
+
+    [classifications]
+    codes = classification_code_1, classification_code_2, classification_code_N.
     ```
 
-    Замените `your_smartcloud_url`, `your_username` и `your_password` на ваши фактические данные для доступа к IBM SmartCloud Control Desk.
+    Замените `your_smartcloud_url`, `your_username`, `your_password` и classification_code на ваши фактические данные для доступа к IBM SmartCloud Control Desk.
 3.  Убедитесь, что Chrome Driver находится в папке `driver/`.  Скачать Chrome Driver можно по ссылке: [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads).  Версия Chrome Driver должна соответствовать версии вашего Chrome браузера.
 
 ## Использование
@@ -81,14 +84,14 @@
 
     *   Авторизуется в веб-интерфейсе IBM SmartCloud Control Desk.
     *   Перейдет в раздел "Рабочие задания" (заявки).
-    *   Извлечет данные о рабочих заданиях (заявках) с кодами `53.12.1.` и `53.13.` со статусом "Назначено".  **Примечание:** Эти коды могут быть настроены в скрипте `data_extractor.py` в соответствии с вашей конфигурацией IBM SmartCloud Control Desk.
+    *   Извлечет данные о рабочих заданиях (заявках) с кодами, указанными в конфигурационном файле, со статусом "Назначено".  **Примечание:** Эти коды могут быть настроены в скрипте `data_extractor.py` в соответствии с вашей конфигурацией IBM SmartCloud Control Desk.
     *   Примет каждое рабочее задание в работу.
-    *   Сохранит извлеченные данные в файлы `53_12_1.xlsx` и `53_13.xlsx`.
+    *   Сохранит извлеченные данные в Excel файлы.
     *   Запишет логи работы скрипта в папку `logs/`.
 
 ## Важные замечания
 
-*   **Конфигурация IBM SmartCloud Control Desk:**  Убедитесь, что коды заявок (`53.12.1.`, `53.13.`) и статусы ("Назначено") соответствуют вашей конфигурации IBM SmartCloud Control Desk.  При необходимости измените их в скрипте `data_extractor.py`.
+*   **Конфигурация IBM SmartCloud Control Desk:**  Убедитесь, что статус ("Назначено") соответствует вашей конфигурации IBM SmartCloud Control Desk.  При необходимости измените статус в скрипте `data_extractor.py`.
 *   **Права доступа:**  Учетная запись, используемая для запуска скрипта, должна иметь достаточные права для просмотра и принятия рабочих заданий в IBM SmartCloud Control Desk.
 *   **XPATH-выражения:**  Скрипт использует XPATH-выражения для поиска элементов на веб-странице.  Эти выражения могут быть несовместимы с другими версиями или конфигурациями IBM SmartCloud Control Desk.  При необходимости измените их в соответствующих файлах (`data_extractor.py`, `work_task_accepter.py`).
 *   **Headless режим:** Скрипт по умолчанию запускается в headless режиме (без отображения окна браузера).  Для отладки можно временно отключить headless режим в файле `web_driver.py`.
