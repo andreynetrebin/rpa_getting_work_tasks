@@ -1,4 +1,5 @@
 # RPA Скрипт для Автоматизированного Приема Заявок в IBM SmartCloud Control Desk
+![rpa_ibm_service_desc](https://github.com/user-attachments/assets/e6b90430-ea91-4f08-a0b3-104b7cb374d4)
 
 ## Описание
 
